@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Etsy T-Shirt Mockup</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-wrapper">
+    <header>
+      <h1>Basit Tişört Tasarım &amp; Mockup</h1>
+      <p>Design ve mockup yükle, n8n ile bağlantı için hazır hale getir.</p>
+    </header>
+
+    <main>
+      <form id="upload-form">
+        <div class="field">
+          <label for="design">Tasarım Dosyası (PNG/JPG)</label>
+          <input type="file" id="design" name="design" accept="image/*" required />
+        </div>
+
+        <div class="field">
+          <label for="mockup">Mockup için Arkaplan/Şablon (Opsiyonel)</label>
+          <input type="file" id="mockup" name="mockup" accept="image/*" />
+        </div>
+
+        <button type="submit">Gönder ve İşle</button>
+      </form>
+
+      <section id="result" class="result hidden">
+        <h2>Yükleme Sonucu</h2>
+        <p id="status"></p>
+        <div class="preview-grid">
+          <div class="preview-card">
+            <h3>Yüklenen Tasarım</h3>
+            <img id="design-preview" alt="Yüklenen tasarım önizleme" src="" />
+          </div>
+          <div class="preview-card">
+            <h3>n8n'den Gelen Tasarım</h3>
+            <img id="processed-design-preview" alt="n8n sonucu tasarım" src="" />
+          </div>
+          <div class="preview-card">
+            <h3>Yüklenen Mockup</h3>
+            <img id="mockup-preview" alt="Yüklenen mockup önizleme" src="" />
+          </div>
+          <div class="preview-card">
+            <h3>n8n'den Gelen Mockup</h3>
+            <img id="processed-mockup-preview" alt="n8n sonucu mockup" src="" />
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
