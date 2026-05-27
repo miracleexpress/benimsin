@@ -95,6 +95,19 @@ app.post('/api/upload', upload.fields([
   });
 });
 
+app.post('/api/save-result', upload.single('image'), (req, res) => {
+  if (!req.file) {
+    return res.status(400).json({ error: 'Dosya gönderilmedi.' });
+  }
+  const type = req.query.type || 'result';
+  const ext = path.extname(req.file.originalname) || '.png';
+  const newFilename = `${Date.now()}-${type}${ext}`;
+  const newPath = path.join(uploadDir, newFilename);
+  fs.renameSync(req.file.path, newPath);
+  const url = `${baseUrl}/uploads/${newFilename}`;
+  res.json({ url });
+});
+
 app.listen(port, () => {
   console.log(`Sunucu başlatıldı: http://localhost:${port}`);
 });
